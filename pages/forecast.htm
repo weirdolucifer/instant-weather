@@ -1,0 +1,175 @@
+<div ng-cloak>
+<div  ng-if="convertDate(weatherResult2.dt) === needdate(0)" >
+     <div>
+         <center><h1>Forecast For Today</h1></center>
+				<br><br><br><br><br><br><br><br>
+			</div>
+                
+    <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div class="day">{{convertTime(weatherResult2.dt)}} IST</div>
+								<div class="date">{{needdate(0)}}</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location">{{ weatherResult2.name }}</div>
+                                <div class="date">{{weatherResult2.coord.lat}} <sup>o</sup>N,          {{weatherResult2.coord.lon}} <sup>o</sup>E</div>
+                                
+								<div class="degree">
+									<div class="num">{{convertToCelcius(weatherResult2.main.temp)}}<sup>o</sup>C</div>
+									<div class="forecast-icon">
+										<img src="http://openweathermap.org/img/w/{{weatherResult2.weather[0].icon}}.png" alt="" width=90>
+                                        
+									</div>	
+								
+                                
+								
+								<div class="degree">{{convertToFahrenheit(weatherResult2.main.temp)}}<sup>o</sup>F</div>
+								</div>
+                                <br>
+							  
+								<span><img src="../img/icon-umberella.png" alt="">{{weatherResult2.main.humidity}} %</span>
+								<span><img src="../img/icon-wind.png" alt="">{{weatherResult2.wind.speed}} km/h</span>
+								<span><img src="../img/icon-compass.png" alt="">{{weatherResult2.weather[0].description}}</span>
+							</div>
+						</div>
+                        
+                        
+                        
+						<div class="forecast" ng-repeat="w in weatherResult.list" ng-if="convertDate(w.dt) === needdate(0)" >
+							<div class="forecast-header">
+								<div class="day">{{ convertTime(w.dt) }} IST</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{convertToCelcius(w.main.temp)}}<sup>o</sup>C</div>
+                                <small>{{convertToFahrenheit(w.main.temp)}}<sup>o</sup>F</small>
+							    <br><br><br>
+                                <small>{{w.weather[0].description}}</small>
+                           
+                            </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+    <center><h1>{{needdate(1)}}</h1></center>
+    <br><br><br><br><br><br><br><br>
+    
+      <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						
+                       <div class="forecast" ng-repeat="w in weatherResult.list" ng-if="convertDate(w.dt) === needdate(1)" >
+							<div class="forecast-header">
+								<div class="day">{{ convertTime(w.dt) }} IST</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{convertToCelcius(w.main.temp)}}<sup>o</sup>C</div>
+                                <small>{{convertToFahrenheit(w.main.temp)}}<sup>o</sup>F</small>
+							    <br><br><br>
+                                <small>{{w.weather[0].description}}</small>
+                           
+                            </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+    
+    <center><h1>{{needdate(2)}}</h1></center>
+    <br><br><br><br><br><br><br><br>
+    
+      <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						
+                       <div class="forecast" ng-repeat="w in weatherResult.list" ng-if="convertDate(w.dt) === needdate(2)" >
+							<div class="forecast-header">
+								<div class="day">{{ convertTime(w.dt) }} IST</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{convertToCelcius(w.main.temp)}}<sup>o</sup>C</div>
+                                <small>{{convertToFahrenheit(w.main.temp)}}<sup>o</sup>F</small>
+							    <br><br><br>
+                                <small>{{w.weather[0].description}}</small>
+                           
+                            </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+    <center><h1>{{needdate(3)}}</h1></center>
+    <br><br><br><br><br><br><br><br>
+    
+      <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						
+                       <div class="forecast" ng-repeat="w in weatherResult.list" ng-if="convertDate(w.dt) === needdate(3)" >
+							<div class="forecast-header">
+								<div class="day">{{ convertTime(w.dt) }} IST</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{convertToCelcius(w.main.temp)}}<sup>o</sup>C</div>
+                                <small>{{convertToFahrenheit(w.main.temp)}}<sup>o</sup>F</small>
+							    <br><br><br>
+                                <small>{{w.weather[0].description}}</small>
+                           
+                            </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+<center><h1>{{needdate(4)}}</h1></center>
+    <br><br><br><br><br><br><br><br>
+    
+      <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						
+                       <div class="forecast" ng-repeat="w in weatherResult.list" ng-if="convertDate(w.dt) === needdate(4)" >
+							<div class="forecast-header">
+								<div class="day">{{ convertTime(w.dt) }} IST</div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png" alt="" width=48>
+								</div>
+								<div class="degree">{{convertToCelcius(w.main.temp)}}<sup>o</sup>C</div>
+                                <small>{{convertToFahrenheit(w.main.temp)}}<sup>o</sup>F</small>
+							    <br><br><br>
+                                <small>{{w.weather[0].description}}</small>
+                           
+                            </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+    
+   
+    
+    
+</div>
+
+<div  ng-if="convertDate(weatherResult2.dt) !== needdate(0)"  ng-cloak>
+    <br> 
+     <center><a href="index.html"><h1 class="allert">Invalid City!!! Get forecast for another city</h1></a></center>
+</div>
+    </div>
