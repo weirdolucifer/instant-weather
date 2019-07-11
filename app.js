@@ -27,11 +27,9 @@ weatherApp.service('cityService', function() {
 });
 
 // CONTROLLERS
-weatherApp.controller('homeController', ['$scope','$sce', '$location', 'cityService', function($scope,$sce, $location, cityService) {
+weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
     
     $scope.city = cityService.city;
-    $scope.html = '<ul><li>render me please</li></ul>';
-    $scope.trustedHtml = $sce.trustAsHtml($scope.html);
     $scope.$watch('city', function() {
        cityService.city = $scope.city; 
     });
@@ -44,18 +42,18 @@ weatherApp.controller('homeController', ['$scope','$sce', '$location', 'cityServ
 
 
 
-weatherApp.controller('forecastController', ['$scope','$sce', '$resource', '$routeParams', 'cityService', function($scope,$sce, $resource, $routeParams, cityService) {
+weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService) {
     $scope.html = '<ul><li>render me please</li></ul>';
     $scope.trustedHtml = $sce.trustAsHtml($scope.html);
     $scope.city = cityService.city;
     
     $scope.days = $routeParams.days || 40;
     
-    $scope.weatherAPI = $resource($sce.getTrustedResourceUrl('http://api.openweathermap.org/data/2.5/forecast'), { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult = $scope.weatherAPI.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city, cnt: $scope.days  });
     
-    $scope.weatherAPI2 = $resource($sce.getTrustedResourceUrl('http://api.openweathermap.org/data/2.5/weather'), { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI2 = $resource("http://api.openweathermap.org/data/2.5/weather", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult2 = $scope.weatherAPI2.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city });
     $scope.convertToFahrenheit = function(degK) {
