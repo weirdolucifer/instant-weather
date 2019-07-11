@@ -1,5 +1,5 @@
 <div ng-cloak>
-<div  ng-if="convertDate(weatherResult.dt) === needdate(0)" >
+<div  ng-if="convertDate(weatherResult2.dt) === needdate(0)" >
      <div>
          <center><h1>Forecast For Today</h1></center>
 				<br><br><br><br><br><br><br><br>
@@ -10,11 +10,11 @@
 					<div class="forecast-container">
 						<div class="today forecast">
 							<div class="forecast-header">
-								<div class="day">{{convertTime(weatherResult.dt)}} IST</div>
+								<div class="day">{{convertTime(weatherResult2.dt)}} IST</div>
 								<div class="date">{{needdate(0)}}</div>
 							</div> <!-- .forecast-header -->
 							<div class="forecast-content">
-								<div class="location">{{ weatherResult.name }}</div>
+								<div class="location">{{ weatherResult2.name }}</div>
                                 <div class="date">{{weatherResult2.coord.lat}} <sup>o</sup>N,          {{weatherResult2.coord.lon}} <sup>o</sup>E</div>
                                 
 								<div class="degree">
