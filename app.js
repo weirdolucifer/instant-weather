@@ -43,17 +43,17 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 
 
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService) {
+weatherApp.controller('forecastController', ['$scope','$sce', '$resource', '$routeParams', 'cityService', function($scope,$sce, $resource, $routeParams, cityService) {
     
     $scope.city = cityService.city;
     
     $scope.days = $routeParams.days || 40;
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI = $resource($sce.getTrustedResourceUrl('http://api.openweathermap.org/data/2.5/forecast'), { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult = $scope.weatherAPI.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city, cnt: $scope.days  });
     
-    $scope.weatherAPI2 = $resource("http://api.openweathermap.org/data/2.5/weather", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI2 = $resource($sce.getTrustedResourceUrl('http://api.openweathermap.org/data/2.5/weather'), { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult2 = $scope.weatherAPI2.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city });
     $scope.convertToFahrenheit = function(degK) {
