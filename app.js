@@ -49,11 +49,11 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
     
     $scope.days = $routeParams.days || 40;
     
-    $scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI = $resource("https://api.openweathermap.org/data/2.5/forecast", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult = $scope.weatherAPI.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city, cnt: $scope.days  });
     
-    $scope.weatherAPI2 = $resource("http://api.openweathermap.org/data/2.5/weather", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
+    $scope.weatherAPI2 = $resource("https://api.openweathermap.org/data/2.5/weather", { callback: "JSON_CALLBACK" }, { get: { method: "JSONP" }});
     
     $scope.weatherResult2 = $scope.weatherAPI2.get({ appid: 'c2b27bd8eadd3cf7f65bff6f4b61f2eb' , q: $scope.city });
     $scope.convertToFahrenheit = function(degK) {
