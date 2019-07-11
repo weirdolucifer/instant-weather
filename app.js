@@ -27,10 +27,11 @@ weatherApp.service('cityService', function() {
 });
 
 // CONTROLLERS
-weatherApp.controller('homeController', ['$scope', '$location', 'cityService', function($scope, $location, cityService) {
+weatherApp.controller('homeController', ['$scope','$sce', '$location', 'cityService', function($scope,$sce, $location, cityService) {
     
     $scope.city = cityService.city;
-    
+    $scope.html = '<ul><li>render me please</li></ul>';
+    $scope.trustedHtml = $sce.trustAsHtml($scope.html);
     $scope.$watch('city', function() {
        cityService.city = $scope.city; 
     });
@@ -44,7 +45,8 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 
 
 weatherApp.controller('forecastController', ['$scope','$sce', '$resource', '$routeParams', 'cityService', function($scope,$sce, $resource, $routeParams, cityService) {
-    
+    $scope.html = '<ul><li>render me please</li></ul>';
+    $scope.trustedHtml = $sce.trustAsHtml($scope.html);
     $scope.city = cityService.city;
     
     $scope.days = $routeParams.days || 40;
