@@ -1,5 +1,5 @@
 <div ng-cloak>
-<div  ng-if="convertDate(weatherResult2.dt) === needdate(0)" >
+<div  ng-if="convertDate(weatherResult2.dt) !== needdate(0)" >
      <div>
          <center><h1>Forecast For Today</h1></center>
 				<br><br><br><br><br><br><br><br>
@@ -167,9 +167,6 @@
     
     
 </div>
-<div  ng-if="convertDate(weatherResult2.dt) !== needdate(0)"  ng-cloak>
-    <br> 
-     <center><a href="index.html"><h1 class="allert">Invalid City!!! Get forecast for another city</h1></a></center>
-</div>
+
 
     </div>
