@@ -43,8 +43,7 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityService', f
 
 
 weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityService', function($scope, $resource, $routeParams, cityService) {
-    $scope.html = '<ul><li>render me please</li></ul>';
-    $scope.trustedHtml = $sce.trustAsHtml($scope.html);
+
     $scope.city = cityService.city;
     
     $scope.days = $routeParams.days || 40;
